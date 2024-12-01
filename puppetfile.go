@@ -27,11 +27,12 @@ type Spec struct {
 }
 
 type GitSpec struct {
-	URL    string `Git @String ","?`
-	Ref    string `(Ref @String ","?)?`
-	Branch string `(Branch ( @String | @ControlBranch ) ","?)?`
-	Tag    string `(Tag @String ","?)?`
-	Commit string `(Commit @String ","?)?`
+	URL           string `Git @String ","?`
+	Ref           string `(Ref @String ","?)?`
+	Branch        string `(Branch ( @String | @ControlBranch ) ","?)?`
+	DefaultBranch string `(DefaultBranch @String ","?)?`
+	Tag           string `(Tag @String ","?)?`
+	Commit        string `(Commit @String ","?)?`
 }
 
 type LegacySpec struct {
@@ -68,6 +69,7 @@ func New() *participle.Parser[Puppetfile] {
 		{Name: "Tag", Pattern: `\:tag\s*=>`},
 		{Name: "Commit", Pattern: `\:commit\s*=>`},
 		{Name: "ControlBranch", Pattern: `\:control_branch`},
+		{Name: "DefaultBranch", Pattern: `\:default_branch\s*=>`},
 		{Name: "LegacyType", Pattern: `type\:`},
 		{Name: "LegacySource", Pattern: `source\:`},
 		{Name: "LegacyVersion", Pattern: `version\:`},

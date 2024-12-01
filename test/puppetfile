@@ -51,3 +51,8 @@ mod 'puppetlabs-apache',
   type: 'tarball',
   source: 'https://repo.example.com/puppet/modules/puppetlabs-apache-7.0.0.tar.gz',
   version: 'aedd6dc1a5136c6a1a1ec2f285df2a70b0fe4c9effb254b5a1f58116e4c1659e' # sha256 digest
+
+mod 'hieradata',
+  :git => 'git@git.example.com:organization/hieradata.git',
+  :branch => :control_branch,
+  :default_branch => 'master'
