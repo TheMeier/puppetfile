@@ -1,0 +1,53 @@
+
+moduledir '/etc/puppet/modules'
+forge 'https://forgeapi.puppetlabs.com'
+
+
+mod 'puppetlabs/stdlib'
+mod 'puppetlabs/stdlib', '4.6.0'
+mod 'a/a', '0.1.0'
+mod 'a/b',
+  :git => 'https://a/b.git'
+
+mod 'a/c',
+  :git => 'https://a/b.git'
+  :ref => 'master'
+
+
+# Install puppetlabs/apache and keep it up to date with 'master'
+mod 'apache',
+  :git => 'https://github.com/puppetlabs/puppetlabs-apache'
+
+# Install puppetlabs/apache and track the 'docs_experiment' branch
+mod 'apache',
+  :git => 'https://github.com/puppetlabs/puppetlabs-apache',
+  :ref => 'docs_experiment'
+
+# Install puppetlabs/apache and pin to the '0.9.0' tag
+mod 'apache',
+  :git => 'https://github.com/puppetlabs/puppetlabs-apache',
+  :tag => '0.9.0'
+
+# Install puppetlabs/apache and pin to the '83401079' commit
+mod 'apache',
+  :git    => 'https://github.com/puppetlabs/puppetlabs-apache',
+  :commit => '83401079053dca11d61945bd9beef9ecf7576cbf'
+
+# Install puppetlabs/apache and track the 'docs_experiment' branch
+mod 'apache',
+  :git    => 'https://github.com/puppetlabs/puppetlabs-apache',
+  :branch => 'docs_experiment'
+mod 'hieradata',
+  :git => 'git@git.example.com:organization/hieradata.git',
+  :branch => :control_branch
+mod 'local_module', :local => true
+
+# Legacy syntax
+mod 'puppetlabs-apache',
+  type:    'git',
+  source:  'https://github.com/puppetlabs/puppetlabs-apache',
+  version: '2098a17'
+mod 'puppetlabs-apache',
+  type: 'tarball',
+  source: 'https://repo.example.com/puppet/modules/puppetlabs-apache-7.0.0.tar.gz',
+  version: 'aedd6dc1a5136c6a1a1ec2f285df2a70b0fe4c9effb254b5a1f58116e4c1659e' # sha256 digest
